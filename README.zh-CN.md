@@ -4,6 +4,10 @@
 
 专为 Antigravity IDE 打造的超轻量上下文窗口（Context Window）实时监控工具，零外部生产依赖。
 
+> **模式选择说明：**
+> - **Antigravity 2.x 独立桌面端**：请使用 **方式 1（CDP 模式，`scripts/`）**。2.x 不支持 `.vsix` 扩展，且默认会自动生成 `DevToolsActivePort`。
+> - **Antigravity 1.x（VS Code 内核）/ VS Code**：可使用 **方式 2（`.vsix` 扩展）**。
+
 ### 内联效果预览
 ![内联效果预览](docs/preview-inline.png)
 
@@ -35,8 +39,8 @@ antigravity-context-lite/
 
 ## 使用方式
 
-### 方式 1：CDP 实时内联注入（推荐，直接嵌入聊天输入框工具栏）
-前置要求：Node.js `>= 20`（内置 `fetch` 与 `WebSocket`），且 Antigravity 已生成 `DevToolsActivePort`。
+### 方式 1：CDP 实时内联注入（Antigravity 2.x 必选，推荐）
+前置要求：Node.js `>= 20`（内置 `fetch` 与 `WebSocket`），且 Antigravity 2.x 正在运行（默认会自动生成 `DevToolsActivePort`）。可直接克隆仓库，或从 [Releases](https://github.com/totoro-atelier/antigravity-context-lite/releases) 下载 `antigravity-context-lite-cdp-v1.0.0.zip` 解压使用。
 
 单次注入测试：
 ```bash

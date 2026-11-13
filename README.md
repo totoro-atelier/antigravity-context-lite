@@ -4,6 +4,10 @@ English | [简体中文](README.zh-CN.md)
 
 An ultra-lightweight real-time Context Window monitor built for Antigravity IDE, with zero external runtime dependencies.
 
+> **Which mode should I use?**
+> - **Antigravity 2.x (Standalone Desktop App)**: Use **Option 1 (CDP Mode, `scripts/`)**. Antigravity 2.x does not support `.vsix` extensions, and generates `DevToolsActivePort` automatically by default.
+> - **Antigravity 1.x / VS Code**: Use **Option 2 (`.vsix` Extension)**.
+
 ### Inline Toolbar
 ![Inline statusbar preview](docs/preview-inline.png)
 
@@ -35,8 +39,8 @@ antigravity-context-lite/
 
 ## Usage
 
-### Option 1: Live CDP Inline Injection (Recommended)
-Requirements: Node.js `>= 20` (built-in `fetch` and `WebSocket`) and an active Antigravity `DevToolsActivePort`.
+### Option 1: Live CDP Inline Injection (For Antigravity 2.x, Recommended)
+Requirements: Node.js `>= 20` (built-in `fetch` and `WebSocket`) and a running Antigravity 2.x instance (`DevToolsActivePort` is created automatically). You can either clone this repo or download `antigravity-context-lite-cdp-v1.0.0.zip` from [Releases](https://github.com/totoro-atelier/antigravity-context-lite/releases).
 
 One-shot injection test:
 ```bash
