@@ -60,7 +60,23 @@ npm install
 npm run compile
 npm run package
 ```
-In Antigravity IDE / VS Code, run `Extensions: Install from VSIX...` and select the generated `.vsix` file.
+In Antigravity IDE / VS Code, run `Extensions: Install from VSIX...` and select the generated `.vsix` file (or download the pre-built `.vsix` from [Releases](https://github.com/totoro-atelier/antigravity-context-lite/releases)).
+
+## CDP Mode vs. VSIX Extension
+| Feature | CDP Inline Mode (`scripts/`) | VSIX Extension (`antigravity-context-lite.vsix`) |
+|---|---|---|
+| Display Location | Embedded inside chat composer (`.agy-composer-footer`), with floating fallback | Native bottom-right VS Code status bar |
+| Hover Tooltip | Detailed token breakdown (Prompt Cache, turn input, model output) | Same detailed breakdown |
+| Install Method | Run with Node.js `>= 20` (no IDE extension install needed) | Install `.vsix` in Extensions |
+
+## Tested Environments
+- **OS**: Ubuntu 24.04 LTS, Windows 11
+- **IDE**: Antigravity IDE `2.31.2`
+- **Runtime**: Node.js `>= 20` (verified on Node.js `24.x`)
+
+## Troubleshooting
+- **`DevToolsActivePort` not found**: Make sure Antigravity is running with remote debugging enabled (`DevToolsActivePort` exists under `~/.config/Antigravity/` on Linux, `%APPDATA%\Antigravity\` on Windows, or `~/Library/Application Support/Antigravity/` on macOS).
+- **Status bar does not appear**: Verify `node -v` is `>= 20` (built-in `fetch` and `WebSocket` are required), and run `node scripts/inject-statusbar.mjs` once to inspect console output.
 
 ## Compatibility & Disclaimer
 - This project reads `--csrf_token` from the local `language_server` process arguments to call local RPC endpoints (`GetUserStatus`, `GetAllCascadeTrajectories`, `GetCascadeTrajectorySteps`). CDP mode also relies on Antigravity frontend DOM selectors (such as `.agy-composer-footer`).

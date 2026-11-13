@@ -60,7 +60,23 @@ npm install
 npm run compile
 npm run package
 ```
-在 Antigravity IDE / VS Code 中执行 `Extensions: Install from VSIX...` 选择生成的 `.vsix` 安装。
+在 Antigravity IDE / VS Code 中执行 `Extensions: Install from VSIX...` 选择生成的 `.vsix` 安装（或直接从 [Releases](https://github.com/totoro-atelier/antigravity-context-lite/releases) 下载预编译的 `.vsix`）。
+
+## CDP 模式 vs VSIX 扩展对比
+| 特性 | CDP 内联模式（`scripts/`） | VSIX 扩展（`antigravity-context-lite.vsix`） |
+|---|---|---|
+| 显示位置 | 直接嵌入聊天输入框工具栏（`.agy-composer-footer`），无输入框时回退右下角悬浮 | 原生 VS Code 底部右侧状态栏 |
+| 悬停详情 | 展示 Prompt 缓存、轮次输入、模型回复等完整明细 | 同等完整明细 |
+| 部署方式 | Node.js `>= 20` 直接运行，无需安装扩展 | 通过 `Install from VSIX...` 安装 |
+
+## 已验证环境
+- **操作系统**：Ubuntu 24.04 LTS、Windows 11
+- **IDE 版本**：Antigravity IDE `2.31.2`
+- **运行环境**：Node.js `>= 20`（已验证 Node.js `24.x`）
+
+## 常见排查
+- **提示找不到 `DevToolsActivePort`**：确认 Antigravity 正在运行且已生成 `DevToolsActivePort`（Linux 位于 `~/.config/Antigravity/`，Windows 位于 `%APPDATA%\Antigravity\`，macOS 位于 `~/Library/Application Support/Antigravity/`）。
+- **状态栏未出现**：确认 `node -v` 为 `20` 及以上（依赖内置 `fetch` 与 `WebSocket`），并手动执行一次 `node scripts/inject-statusbar.mjs` 查看终端输出。
 
 ## 兼容与免责声明
 - 本项目通过读取本机 `language_server` 进程参数中的 `--csrf_token` 调用本地 RPC（`GetUserStatus`、`GetAllCascadeTrajectories`、`GetCascadeTrajectorySteps`），CDP 模式同时依赖 Antigravity 前端 DOM 结构（如 `.agy-composer-footer`）。
