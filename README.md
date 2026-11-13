@@ -2,6 +2,8 @@
 
 专为 Antigravity IDE 打造的超轻量上下文窗口（Context Window）实时监控工具，零外部生产依赖。
 
+![内联效果预览](docs/preview-inline.png)
+
 ## 核心特性
 - **原生工具栏内联嵌入（CDP 模式）**：优先无感嵌入聊天输入框底部模型选择器右侧（`.agy-composer-footer`），透明背景无边框；未检测到输入框时自动回退至右下角悬浮胶囊。
 - **动态模型与上限识别**：启动后自动从本地 `language_server` 的 `GetUserStatus` 接口拉取最新模型显示名，并按规则判定上下文上限（Gemini 默认 `256k` 压缩线、Claude 系列 `200k`、`GPT-OSS / 128k` 为 `128k`、`2M` 为 `2M`），新模型上线免改配置。
