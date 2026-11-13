@@ -4,6 +4,11 @@
   "description": "Ultra-lightweight real-time context window monitor for Antigravity IDE",
   "version": "1.0.0",
   "publisher": "local-craft",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/totoro-atelier/antigravity-context-lite.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
