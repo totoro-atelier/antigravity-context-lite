@@ -1,0 +1,39 @@
+{
+  "name": "antigravity-context-lite",
+  "displayName": "Antigravity Context Lite",
+  "description": "Ultra-lightweight real-time context window monitor for Antigravity IDE",
+  "version": "1.0.0",
+  "publisher": "local-craft",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "antigravity-context-lite.refresh",
+        "title": "Refresh Context Monitor"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npx -y @vscode/vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}
